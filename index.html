@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>The Cave</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        /* Customize the advanced audio player's appearance here */
+.audio-player {
+    background-color: #FF71CE;
+        position: sticky;
+            top: 0;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.progress {
+    height: 10px;
+    background-color: #ccc;
+    margin-top: 10px;
+}
+
+.progress-bar {
+    width: 0;
+    height: 100%;
+    background-color: #4caf50;
+}
+
+#current-time, #total-time {
+    margin-top: 10px;
+}
+  /* Customize the advanced audio player's appearance here */
+  .audio-player {
+    background-color: #FF71CE;
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .progress {
+    height: 10px;
+    background-color: #ccc;
+    margin-top: 10px;
+    width: 80%;
+  }
+
+  .progress-bar {
+    width: 0;
+    height: 100%;
+    background-color: #4caf50;
+  }
+
+  #current-time, #total-time {
+    margin-top: 10px;
+  }
+        .player-with-gifs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.side-gif {
+    height: 50px;
+    width: auto;
+    margin: 0 10px;
+}
+#song-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+    background-color: #FFFB96;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+
+
+        a:link {
+            color: #B967FF;
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: #01CDFE;
+            background-color: transparent;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #FFFB96;
+            background-color: #B967FF;
+            text-decoration: underline;
+        }
+
+        a:active {
+            color: #01CDFE;
+            background-color: transparent;
+            text-decoration: underline;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Add a gray background color with some padding */
+        body {
+            font-family: Arial;
+            padding: 20px;
+            background: url('https://64.media.tumblr.com/8d8b72eaeb9920b7de19a4866b4c18a1/e1f2c7535510a932-95/s540x810/b1d8913ea222cad6c8dac8e82e5e99fd799e1fa4.gif');
+            background-repeat: repeat;
+        }
+
+        /* Header/Blog Title */
+        .header {
+            padding: 30px;
+            font-size: 40px;
+            text-align: center;
+            background: #FF71CE;
+        }
+
+        /* Create a grid layout with three columns */
+        .container {
+            display: grid;
+            grid-template-columns: 25% 50% 25%;
+            grid-gap: 18px;
+        }
+
+        /* Left column */
+        .leftcolumn {
+            position: sticky;
+            top: 0;
+        }
+
+        /* Middle column */
+        .middlecolumn {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Right column */
+        .rightcolumn {
+            position: sticky;
+            top: 0;
+        }
+
+        /* Fake image */
+        .fakeimg {
+            background-color: #FFFB96;
+            width: 100%;
+            padding: 20px;
+        }
+
+        /* Add a card effect for articles */
+        .card {
+            background-color: #FF71CE;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 20px;
+            text-align: center;
+            background: #FF71CE;
+            margin-top: 20px;
+        }
+        h2 span {
+                text-align: center;
+                background-color: #FFFB96
+            }
+            h5 span {
+              background-color: #FFFB96;
+            }
+            p span {
+                background-color: #FFFB96;
+            }
+
+        /* Responsive layout - when the screen is less than 800px wide, make the three columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 800px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .leftcolumn, .rightcolumn {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="header" style="color: #01CDFE">
+    <h2><span>The Cave</span></h2>
+</div>
+<div class="container">
+    <div class="leftcolumn">
+        <div class="card" style="color: #01CDFE;">
+            <h2 class="opacity"><span>Paths of THE CAVE</span></h2>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Art</a></li>
+                <li><a href="#">Mini Game</a></li>
+            </ul>
+        </div>
+        <div class="card" style="color: #01CDFE;background-image: url(Image/Curcit%20board%20oixel.png);">
+            <h2><span>Chat Box</span></h2>
+            
+            <iframe title="Chat Box" src="https://www3.cbox.ws/box/?boxid=3544071&boxtag=C5QE5a" width="100%" height="450" style="background-color: #01CDFE; opacity: .8; border: none;" allow="autoplay"></iframe>
+
+        </div>
+    </div>
+    <div class="middlecolumn">
+        <div class="card" style="color: #01CDFE; display: flex; flex-direction: row; align-items: center; margin-bottom: 20px;">
+            <div style="flex: 1; order: 1;">
+                <h2><span>Log 1</span></h2>
+                <h5><span>Feb 2, 2025</span><br><span>0952</span></h5>
+                <p><span>hahahahahaah this is so fun!<br> I am constantly on the verge of snapping this laptop in half.<br>
+                    That's okay though! I am very, very slowly starting to understand this HTML.<br> I started this yesterday and
+                    I'm going to work on making custom blinkers and stickers.<br> Maybe first, I'll make an audio player... scary
+                    <br>&lpar;&acute;&#12290;&#65343;&#12290;&#65344;&rpar;</span></p>
+            </div>
+            <div style="flex: 0 0 100px; order: 2;">
+                <img src="Image/girl-screaming-cry-meme-1575191420.gif" alt="screaming" style="height:200px; width: 400px">
+            </div>
+        </div>
+        <div class="card" style="color: #01CDFE; display: flex; flex-direction: row; align-items: center; margin-bottom: 20px;">
+            <div style="flex: 1; order: 1;">
+                <h2><span>Log 2</span></h2>
+                <h5><span>Feb 2, 2025<br>2110</span></h5>
+                <p><span>Okay I am getting there &#9584;&lpar;&ast;&deg;&xdtri;&deg;&ast;&rpar;&#9583;<br><br> So I am VERY slowly getting the hang of this. I thought I was
+                    cheating by copying code but seems this is pretty common!<br> If you are interested in using this layout I
+                    got it <a href="https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_blog_layout">HERE</a>!<br>
+                    Also I was working on some art stuff today and made an OC.<br> Her name is Rema and she is a robot girl!
+                    That's about all I have now lol. Oki! I should probably head to bed now :/ <br> Good night to whoever sees
+                    this! </span></p>
+            </div>
+            <div style="flex: 0 0 100px; order: 2;">
+                <img src="Image/Rema.gif" alt="rema" style="height:280px; width: 210px">
+            </div>
+        </div>
+         <div class="card" style="color: #01CDFE; background-image: url(Image/Spin.gif);display: flex; flex-direction: row; align-items: center; margin-bottom: 20px;">
+            <div style="flex: 1; order: 1;">
+                <h2><span>Log 3</span></h2>
+                <h5><span>Feb 4, 2025<br>2059</span></h5>
+                <p><span>Cool Updates!<br><br> I told myself i wasnt going to do anything fo a log today but oh well lol. <br>
+                I really didint do much yesterday. I drew more but nothing was making me happy &#111;&lpar;&#84;&#12504;&#84;&#111;&rpar;<br>
+                Today I added a chat box which i texted a million times...heh, and i added a NAV portion<br>
+                which goes no where lol. I will try tmr to make more cute customisations, probs stickers. Welp till next time<br>
+                    &#12542;&lpar;&bull;&omega;&bull;&grave;&rpar;&#111;</span></p>
+            </div>
+        </div>
+        <div class="card" style="color: #01CDFE;display: flex; flex-direction: row; align-items: center; margin-bottom: 20px;">
+            <div style="flex: 1; order: 1;">
+                <h2><span>Log 4</span></h2>
+                <h5><span>Feb 5, 2025<br>1954</span></h5>
+                <p><span>Got some MUSIC<br><br>Made muisc player! SO SICK (/≧▽≦)/<br>It me fucking aaagggeees, but its done, sorta, -ish<br>
+                    I want to make a skip and back button above the dancing gifs but finsing out how to code that is proving very difficult.<br>
+                    I am struggling with Java lol. I didn't really draw today but came up with some ideas for Rema's backstory so thats dope!<br>
+                    Oki i am heading off now ヾ(￣▽￣) Bye~Bye~</span></p>
+                <div style="flex: 0 0 100px; order: 2;">
+                <img src="Image/Kawaii%20GIF.gif" alt="Kawaii wave" style="height:100px; width: 200px">
+            </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="rightcolumn">
+        <div class="card" style="color:#01CDFE; display: flex; flex-direction: column; margin-bottom: 20px;">
+            <h2><span>About Me</span></h2>
+            <div style="display: flex; align-items: center;">
+                <img src="Image/me-export.gif" alt="Description of image" style="height:100px;width: 100px; margin-right: 10px;">
+                <p style="text-align: center"><span>Hello! I am Grim &lpar;&#12291;&#65507;&omega;&#65507;&#12291;&rpar;&#12446; I am 23 years old and a Libra &#9806;<br> I live in Florida and have a beautiful frog <a href="Image/IMG_3350.JPG">GORK</a></span></p>
+            </div>
+        </div>
+ <div class="audio-player">
+    <h2 style="text-align: center; color:#01CDFE;"><span>This week's music</span></h2>
+    <div class="player-with-gifs">
+        <img src="Image/Dance.gif" alt="First GIF" class="side-gif" style="background-color:#01CDFE">
+        <audio id="audio" controls autoplay>
+            <source src="9am in calabasas (remix) (1).MP3" type="audio/mpeg">
+            <source src="Funny Thing (1).MP3" type="audio/mpeg">
+            <source src="Music/HIT EM WHERE IT HURTS (1).MP3" type="audio/mpeg">
+            <source src="Music/RYD-DARK RED (1).MP3" type="audio/mpeg">
+            <source src="Music/Omen (ft. Sam Smith) (1).MP3" type="audio/mpeg">
+            <source src="Music/When I R.I.P (1).MP3" type="audio/mpeg">
+            <source src="Music/Doo Wap (1).MP3" type="audio/mpeg">
+            <source src="Music/Roslyn (1).MP3" type="audio/mpeg">
+            <source src="Music/Work Out(1).MP3" type="audio/mpeg">
+            <source src="Music/On My Mind (1).MP3" type="audio/mpeg">
+            
+            <!-- Add more songs here -->
+        </audio>
+        <img src="Image/Dance.gif" alt="Second GIF" class="side-gif" style="background-color:#01CDFE ">
+    </div>
+    <div id="song-title" style="text-align: center; color:#01CDFE; margin-top: 10px;margin-bottom: 10px"></div>
+
+</div>
+
+
+    <script src="script.js"></script>
+    </div>
+</div>
+<div class="footer" style="color: #01CDFE">
+    <h2>Footer</h2>
+</div>
+</body>
+</html>
