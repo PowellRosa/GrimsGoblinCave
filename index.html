@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
     <style>
+        button {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        button img {
+            width: 50px; /* Adjust size as needed */
+            height: 50px; /* Adjust size as needed */
+        }
         /* Customize the advanced audio player's appearance here */
 .audio-player {
         background-color: #FF71CE;
@@ -403,11 +412,16 @@
     <h2 style="text-align: center; color:#01CDFE;"><span>This week's music</span></h2>
     <div class="player-with-gifs">
         <img src="Image/Dance.gif" alt="First GIF" class="side-gif" style="background-color:#01CDFE">
-        <audio id="audio" controls>
+        <audio id="audio" controls></audio>
         <div>
-            <button id="prev-btn">Previous</button>
-            <button id="next-btn">Next</button>
+            <button id="prev-btn">
+                <img src="prev.gif" alt="Previous">
+            </button>
+            <button id="next-btn">
+                <img src="next.gif" alt="Next">
+            </button>
         </div>
+    </div>
             <source src="9am in calabasas (remix) (1).MP3" type="audio/mpeg">
             <source src="Funny Thing (1).MP3" type="audio/mpeg">
             <source src="Music/HIT EM WHERE IT HURTS (1).MP3" type="audio/mpeg">
@@ -420,7 +434,7 @@
             <source src="Music/On My Mind (1).MP3" type="audio/mpeg">
             
             <!-- Add more songs here -->
-        </audio>
+       </audio>
         <img src="Image/Dance.gif" alt="Second GIF" class="side-gif" style="background-color:#01CDFE ">
     </div>
     <div id="song-title" style="text-align: center; color:#01CDFE; margin-top: 10px;margin-bottom: 10px"></div>
