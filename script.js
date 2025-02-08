@@ -19,13 +19,14 @@ const songs = [
     
     // Add more songs here
 ];
+let currentTrackIndex = 0;
 
-let currentSongIndex = 0;
-
-function loadSong(index) {
-    audio.src = songs[index].src;
-    songTitle.textContent = songs[index].title;
-}
+  function playTrack(index) {
+        if (index >= 0 && index < audioTracks.length) {
+            audioPlayer.src = audioTracks[index];
+            audioPlayer.play();
+        }
+    }
 
 audio.addEventListener('ended', () => {
     currentSongIndex = (currentSongIndex + 1) % songs.length;
