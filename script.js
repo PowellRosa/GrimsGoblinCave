@@ -1,7 +1,6 @@
 const audio = document.getElementById('audio');
 const songTitle = document.getElementById('song-title');
 
-
 const songs = [
     { src: 'Music/9am in calabasas (remix) (1).MP3', title: 'Ayesha Erotica-9am in Clabasas (Remix)' },
     { src: 'Music/Funny Thing (1).MP3', title: 'Thundercat-Funny Thing' },
@@ -17,17 +16,17 @@ const songs = [
     
     // Add more songs here
 ];
-let Index = 0;
 
-  function playTrack(index) {
-        if (index >= 0 && index < audioTracks.length) {
-            audioPlayer.src = audioTracks[index];
-            audioPlayer.play();
-        }
-    }
+let currentSongIndex = 0;
+
+function loadSong(index) {
+    audio.src = songs[index].src;
+    songTitle.textContent = songs[index].title;
+}
 
 audio.addEventListener('ended', () => {
     currentSongIndex = (currentSongIndex + 1) % songs.length;
     loadSong(currentSongIndex);
 });
 
+loadSong(currentSongIndex);
