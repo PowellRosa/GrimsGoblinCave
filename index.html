@@ -36,6 +36,13 @@
         width: 100%;
         max-width: 100%;
     }
+        .gif-text {
+    font-size: 14px;
+    color: #333;
+    margin-top: 5px; /* Add space between GIF and text */
+    text-align: center;
+    font-weight: bold;
+}
 
     .side-gif {
         height: auto;
@@ -295,7 +302,7 @@
         transform: translateX(0); /* Start at the left */
     }
     50% {
-        transform: translateX(calc(100vw - 100%)); /* Move to the far right */
+        transform: translateX(calc(100vw - 275px)); /* Move to the far right */
     }
     100% {
         transform: translateX(0); /* Return to the left */
@@ -414,7 +421,8 @@
         <audio id="audio" controls></audio>
         <div>
             <button id="next-btn">
-                <img src="Image/next.gif" alt="Nex">
+                <img src="Image/next.gif" alt="Nex" style="background-color: #01CDFE";>
+                <p class="gif-text">Next</p>
             </button>
         </div>
     </div>
@@ -432,7 +440,8 @@
             <!-- Add more songs here -->
        </audio>
          <div><button id="prev-btn">
-                <img src="Image/prev.gif" alt="Previous">
+                <img src="Image/prev.gif" alt="Previous" style="background-color: #01CDFE";>
+                     <p class="gif-text">Previous</p>
             </button>
     </div>
     <div id="song-title" style="text-align: center; color:#01CDFE; margin-top: 10px;margin-bottom: 10px"></div>
