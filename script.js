@@ -1,5 +1,8 @@
 const audio = document.getElementById('audio');
 const songTitle = document.getElementById('song-title');
+const prevButton = document.getElementById("prevButton");
+const nextButton = document.getElementById("nextButton");
+
 
 const songs = [
     { src: 'Music/9am in calabasas (remix) (1).MP3', title: 'Ayesha Erotica-9am in Clabasas (Remix)' },
@@ -30,3 +33,14 @@ audio.addEventListener('ended', () => {
 });
 
 loadSong(currentSongIndex);
+// Event listener for the "Previous" button
+    prevButton.addEventListener("click", () => {
+        currentTrackIndex = (currentTrackIndex - 1 + audioTracks.length) % audioTracks.length; // Loop backward
+        playTrack(currentTrackIndex);
+    });
+
+    // Event listener for the "Next" button
+    nextButton.addEventListener("click", () => {
+        currentTrackIndex = (currentTrackIndex + 1) % audioTracks.length; // Loop forward
+        playTrack(currentTrackIndex);
+    });
