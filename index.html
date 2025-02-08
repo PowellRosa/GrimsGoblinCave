@@ -15,28 +15,46 @@
             height: 50px; /* Adjust size as needed */
         }
         /* Customize the advanced audio player's appearance here */
-.audio-player {
-        background-color: #FF71CE;
-        position: sticky;
-        top: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 10px;
-        box-sizing: border-box;
-        width: 100%;
-        max-width: 600px; /* Optional: Set a max width for larger screens */
-        margin: 0 auto; /* Center the audio player */
-    }
+    .audio-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #FF71CE;
+            padding: 20px;
+            border-radius: 10px;
+            box-sizing: border-box;
+            max-width: 500px;
+            margin: 0 auto;
+            color: #01CDFE;
+        }
 
-    .player-with-gifs {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 10px;
-        width: 100%;
-        max-width: 100%;
-    }
+        /* Container for the audio player and its components */
+        .audio-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            overflow: hidden; /* Prevent content overflow */
+        }
+
+        /* Wrapper for GIFs and audio */
+        .player-with-gifs {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            width: 100%;
+            max-width: 100%; /* Keep within the card boundaries */
+        }
+
+        /* Audio player styling */
+        audio {
+            flex-grow: 1; /* Allow the audio player to expand */
+            width: 100%; /* Ensure the audio player fits within the container */
+            max-width: calc(100% - 30px); /* Add some padding */
+            margin: 0 auto;
+        }
+
         .gif-text {
     font-size: 14px;
     color: #FFFB96;
@@ -49,10 +67,6 @@
         height: auto;
         max-width: 15%; /* Scale the GIFs to fit within the player */
         margin: 0 5px;
-    }
-
-    audio {
-        flex-shrink: 0;
     }
 
     #song-title {
