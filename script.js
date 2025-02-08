@@ -1,7 +1,5 @@
 const audio = document.getElementById('audio');
 const songTitle = document.getElementById('song-title');
-const prevButton = document.getElementById("prevButton");
-const nextButton = document.getElementById("nextButton");
 
 
 const songs = [
@@ -19,7 +17,7 @@ const songs = [
     
     // Add more songs here
 ];
-let currentTrackIndex = 0;
+let Index = 0;
 
   function playTrack(index) {
         if (index >= 0 && index < audioTracks.length) {
@@ -33,15 +31,3 @@ audio.addEventListener('ended', () => {
     loadSong(currentSongIndex);
 });
 
-loadSong(currentSongIndex);
-// Event listener for the "Previous" button
-    prevButton.addEventListener("click", () => {
-        currentTrackIndex = (currentTrackIndex - 1 + audioTracks.length) % audioTracks.length; // Loop backward
-        playTrack(currentTrackIndex);
-    });
-
-    // Event listener for the "Next" button
-    nextButton.addEventListener("click", () => {
-        currentTrackIndex = (currentTrackIndex + 1) % audioTracks.length; // Loop forward
-        playTrack(currentTrackIndex);
-    });
