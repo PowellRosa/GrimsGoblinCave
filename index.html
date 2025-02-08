@@ -188,10 +188,11 @@
 
         /* Create a grid layout with three columns */
         .container {
+            align-items: start; /* Ensure all columns start at the same height */
             display: grid;
             grid-template-columns: 25% 50% 25%;
-            grid-gap: 18px;
-        }
+            grid-gap: 18px; /* Space between columns */
+}
 
         /* Left column */
         .leftcolumn {
@@ -208,9 +209,10 @@
        .rightcolumn {
             position: sticky;
             top: 0;
-            padding: 35px; /* Add padding for spacing */
-            box-sizing: border-box; /* Ensure padding does not affect the width */
+            padding: 20px; /* Reduce padding for better alignment */
+            box-sizing: border-box; /* Prevent padding from affecting overall width */
 }
+
 
         /* Fake image */
         .fakeimg {
