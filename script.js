@@ -1,7 +1,7 @@
 const audio = document.getElementById('audio');
         const songTitle = document.getElementById('song-title');
-        const prevbtn = document.getElementById('prev-btn');
-        const nextbtn = document.getElementById('next-btn');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
 
         const songs = [
             { src: 'Music/9am in calabasas (remix) (1).MP3', title: 'Ayesha Erotica-9am in Clabasas (Remix)' },
@@ -26,13 +26,13 @@ const audio = document.getElementById('audio');
         }
 
         // Play the next song
-        nextbtn.addEventListener('click', () => {
+        nextBtn.addEventListener('click', () => {
             currentSongIndex = (currentSongIndex + 1) % songs.length;
             loadSong(currentSongIndex);
         });
 
         // Play the previous song
-        prevbtn.addEventListener('click', () => {
+        prevBtn.addEventListener('click', () => {
             currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
             loadSong(currentSongIndex);
         });
@@ -65,5 +65,4 @@ const audio = document.getElementById('audio');
         slideIndex += n - 1;
         showSlides();
     }
-
 
