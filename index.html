@@ -2,15 +2,84 @@
 <html lang="en">
 <head>
     <title>The Cave</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
     <style>
+        button {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        button img {
+            width: 50px; /* Adjust size as needed */
+            height: 50px; /* Adjust size as needed */
+        }
         /* Customize the advanced audio player's appearance here */
 .audio-player {
-    background-color: #FF71CE;
+        background-color: #FF71CE;
         position: sticky;
-            top: 0;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 600px; /* Optional: Set a max width for larger screens */
+        margin: 0 auto; /* Center the audio player */
+    }
+
+    .player-with-gifs {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        width: 100%;
+        max-width: 100%;
+    }
+        .gif-text {
+    font-size: 14px;
+    color: #FFFB96;
+    margin-top: 5px; /* Add space between GIF and text */
+    text-align: center;
+    font-weight: bold;
 }
+
+    .side-gif {
+        height: auto;
+        max-width: 15%; /* Scale the GIFs to fit within the player */
+        margin: 0 5px;
+    }
+
+    audio {
+        flex-shrink: 0;
+    }
+
+    #song-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin: 10px 0;
+        background-color: #FFFB96;
+        padding: 5px;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    /* Media queries for smaller screens */
+    @media screen and (max-width: 600px) {
+        .player-with-gifs {
+            flex-direction: column;
+        }
+
+        .side-gif {
+            max-width: 50px; /* Resize the GIFs for smaller screens */
+            margin-bottom: 10px;
+        }
+
+        audio {
+            width: 100%;
+        }
+    }
 
 .controls {
     display: flex;
@@ -152,11 +221,12 @@
             flex-direction: column;
         }
 
-        /* Right column */
-        .rightcolumn {
+       .rightcolumn {
             position: sticky;
             top: 0;
-        }
+            padding: 35px; /* Add padding for spacing */
+            box-sizing: border-box; /* Ensure padding does not affect the width */
+}
 
         /* Fake image */
         .fakeimg {
@@ -189,20 +259,66 @@
             p span {
                 background-color: #FFFB96;
             }
+        /* Page border container */
+/* Page border container */
+.page-border {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Ensure it doesn't block interaction with content */
+    z-index: 9999; /* Keep it above the rest of the page */
+    box-sizing: border-box;
+}
 
-        /* Responsive layout - when the screen is less than 800px wide, make the three columns stack on top of each other instead of next to each other */
-        @media screen and (max-width: 800px) {
-            .container {
-                grid-template-columns: 1fr;
-            }
+/* Top border container */
+.top-border {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px; /* Height of the border area */
+    overflow: hidden; /* Prevent overflow outside the container */
+    background-color: #000; /* Optional background for contrast */
+    z-index: 9999; /* Keep it above other content */
+    pointer-events: none; /* Allow interaction with the page */
+    display: flex;
+    align-items: center; /* Center text vertically */
+}
 
-            .leftcolumn, .rightcolumn {
-                position: static;
-            }
-        }
+/* Bouncing text */
+.bouncing-text {
+    display: inline-block;
+    color: #FF71CE;
+    font-size: 20px;
+    white-space: nowrap; /* Prevent the text from wrapping */
+    animation: bounceHorizontal 8s ease-in-out infinite; /* Adjust speed and loop */
+}
+
+/* Bounce animation */
+@keyframes bounceHorizontal {
+    0% {
+        transform: translateX(0); /* Start at the left */
+    }
+    50% {
+        transform: translateX(calc(100vw - 275px)); /* Move to the far right */
+    }
+    100% {
+        transform: translateX(0); /* Return to the left */
+    }
+}
+
     </style>
 </head>
 <body>
+    <div class="top-border">
+    <div class="bouncing-text">
+        Welcome to the CAVE
+    </div>
+</div>
+
+
 <div class="header" style="color: #01CDFE">
     <h2><span>The Cave</span></h2>
 </div>
@@ -285,7 +401,37 @@
                     got her new substrate too and she LOOOOOVES it and I am glad. She burrowed her body completely! Love her. Bet it feels real good in the dirt.<br>
                     Gunna brainstorm some ideas for what comes next. Might make a tutorial for how I did all this to help spread some creativity on the internet. See you later world!</span></p>
                 <div style="flex: 0 0 100px; order: 2;">
-                <script src="https://static-bundles.visme.co/visme-embed.js"></script><div class="visme_d" data-title="Sleek Coffee Lover Statistics Presentation" data-url="w4n4qyeo-sleek-coffee-lover-statistics-presentation" data-w="1366" data-full-h="false" data-h="768" data-domain="my"></div><p style="width:223px !important;border-radius:3px !important;padding:3px !important;font-size:12px !important;font-family:Arial, sans-serif !important;color:#314152 !important;white-space:nowrap !important"><a href="https://www.visme.co/presentation-software?utm_source=CTA&amp;utm_medium=Embed" target="_blank" rel="noreferrer" style="font-weight:600 !important;text-decoration:none !important;font-size:12px !important;font-family:Arial, sans-serif !important;color:#314152 !important;white-space:nowrap !important"></a></p>
+                <!-- Slideshow Container -->
+    <div class="slideshow-container" style="position: relative; max-width: 100%; margin-top: 20px;">
+
+        <!-- Slide 1 -->
+        <div class="slide fade" style="display: none;">
+            <img src="Image/Gork 1.jpeg" alt="Gork Shun" style="width:100%; border-radius: 10px;">
+            <div class="slide-text" style="text-align: center; color: #01CDFE; margin-top: 10px;">Gork shunning us</div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slide fade" style="display: none;">
+            <img src="Image/Gork 2.jpeg" alt="side view" style="width:100%; border-radius: 10px;">
+            <div class="slide-text" style="text-align: center; color: #01CDFE; margin-top: 10px;">Side View of Gork</div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="slide fade" style="display: none;">
+            <img src="Image/Gork 3.jpeg" alt="Gork getting comfy" style="width:100%; border-radius: 10px;">
+            <div class="slide-text" style="text-align: center; color: #01CDFE; margin-top: 10px;">Gork getting comfy</div>
+        </div>
+        <!-- Slide 4 -->
+        <div class="slide fade" style="display: none;">
+            <img src="Image/Luna.jpeg" alt="Luna Dog in bed" style="width:50%; border-radius: 10px;">
+            <div class="slide-text" style="text-align: center; color: #01CDFE; margin-top: 10px;">Luna Dog</div>
+        </div>
+
+        <!-- Next/Prev Buttons -->
+        <a class="prev" onclick="plusSlides(-1)" style="cursor: pointer; position: absolute; top: 50%; left: 0; margin-top: -22px; color: #FF71CE; font-size: 24px; font-weight: bold;">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)" style="cursor: pointer; position: absolute; top: 50%; right: 0; margin-top: -22px; color: #FF71CE; font-size: 24px; font-weight: bold;">&#10095;</a>
+    </div>
+                    
                 </div>
                 </div>
         </div>
@@ -295,20 +441,21 @@
         <div class="card" style="color:#01CDFE; display: flex; flex-direction: column; margin-bottom: 20px;">
             <h2><span>About Me</span></h2>
             <div style="display: flex; align-items: center;">
-                 <div>
-            <button id="next-btn">
-                <img src="Image/next.gif" alt="Nex" style="background-color: #01CDFE";>
-                <p class="gif-text">Next</p>
-            </button>
-        </div>
+                <img src="Image/me-export.gif" alt="Description of image" style="height:100px;width: 100px; margin-right: 10px;">
                 <p style="text-align: center"><span>Hello! I am Grim &lpar;&#12291;&#65507;&omega;&#65507;&#12291;&rpar;&#12446; I am 23 years old and a Libra &#9806;<br> I live in Florida and have a beautiful frog <a href="Image/IMG_3350.JPG">GORK</a></span></p>
             </div>
         </div>
  <div class="audio-player">
     <h2 style="text-align: center; color:#01CDFE;"><span>This week's music</span></h2>
     <div class="player-with-gifs">
-        <img src="Image/Dance.gif" alt="First GIF" class="side-gif" style="background-color:#01CDFE">
-        <audio id="audio" controls autoplay>
+        <audio id="audio" controls></audio>
+        <div>
+            <button id="next-btn">
+                <img src="Image/next.gif" alt="Nex" style="background-color: #01CDFE";>
+                <p class="gif-text">Next</p>
+            </button>
+        </div>
+    </div>
             <source src="9am in calabasas (remix) (1).MP3" type="audio/mpeg">
             <source src="Funny Thing (1).MP3" type="audio/mpeg">
             <source src="Music/HIT EM WHERE IT HURTS (1).MP3" type="audio/mpeg">
@@ -321,12 +468,11 @@
             <source src="Music/On My Mind (1).MP3" type="audio/mpeg">
             
             <!-- Add more songs here -->
-        </audio>
-        <div><button id="prev-btn">
+       </audio>
+         <div><button id="prev-btn">
                 <img src="Image/prev.gif" alt="Previous" style="background-color: #01CDFE";>
                      <p class="gif-text">Previous</p>
             </button>
-    </div>
     </div>
     <div id="song-title" style="text-align: center; color:#01CDFE; margin-top: 10px;margin-bottom: 10px"></div>
 
