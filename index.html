@@ -1,490 +1,408 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>The Cave</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <head>
+        <title>The Cave</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href='https://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet'>
+        <script src="https://iframe.chat/scripts/main.min.js"></script>
     <style>
-        button {
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-        button img {
-            width: 50px; /* Adjust size as needed */
-            height: 50px; /* Adjust size as needed */
-        }
-        /* Customize the advanced audio player's appearance here */
-.audio-player {
-        background-color: #FF71CE;
-        position: sticky;
-        top: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 10px;
-        box-sizing: border-box;
-        width: 100%;
-        max-width: 600px; /* Optional: Set a max width for larger screens */
-        margin: 0 auto; /* Center the audio player */
-    }
-
-    .player-with-gifs {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 10px;
-        width: 100%;
-        max-width: 100%;
-    }
-        .gif-text {
-    font-size: 14px;
-    color: #FFFB96;
-    margin-top: 5px; /* Add space between GIF and text */
-    text-align: center;
-    font-weight: bold;
-}
-
-    .side-gif {
-        height: auto;
-        max-width: 15%; /* Scale the GIFs to fit within the player */
-        margin: 0 5px;
-    }
-
-    audio {
-        flex-shrink: 0;
-    }
-
-    #song-title {
-        font-size: 18px;
-        font-weight: bold;
-        margin: 10px 0;
-        background-color: #FFFB96;
-        padding: 5px;
-        border-radius: 5px;
-        text-align: center;
-    }
-
-    /* Media queries for smaller screens */
-    @media screen and (max-width: 600px) {
-        .player-with-gifs {
-            flex-direction: column;
-        }
-
-        .side-gif {
-            max-width: 50px; /* Resize the GIFs for smaller screens */
-            margin-bottom: 10px;
-        }
-
-        audio {
-            width: 100%;
-        }
-    }
-
-.controls {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 10px;
-}
-
-.progress {
-    height: 10px;
-    background-color: #ccc;
-    margin-top: 10px;
-}
-
-.progress-bar {
-    width: 0;
-    height: 100%;
-    background-color: #4caf50;
-}
-
-#current-time, #total-time {
-    margin-top: 10px;
-}
-  /* Customize the advanced audio player's appearance here */
-  .audio-player {
-    background-color: #FF71CE;
-    position: sticky;
-    top: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .controls {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 10px;
-  }
-
-  .progress {
-    height: 10px;
-    background-color: #ccc;
-    margin-top: 10px;
-    width: 80%;
-  }
-
-  .progress-bar {
-    width: 0;
-    height: 100%;
-    background-color: #4caf50;
-  }
-
-  #current-time, #total-time {
-    margin-top: 10px;
-  }
-        .player-with-gifs {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.side-gif {
-    height: 50px;
-    width: auto;
-    margin: 0 10px;
-}
-#song-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin-top: 10px;
-    background-color: #FFFB96;
-    padding: 5px;
-    border-radius: 5px;
-}
-
-
-
-        a:link {
-            color: #B967FF;
-            background-color: transparent;
-            text-decoration: none;
-        }
-
-        a:visited {
-            color: #01CDFE;
-            background-color: transparent;
-            text-decoration: none;
-        }
-
-        a:hover {
-            color: #FFFB96;
-            background-color: #B967FF;
-            text-decoration: underline;
-        }
-
-        a:active {
-            color: #01CDFE;
-            background-color: transparent;
-            text-decoration: underline;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        /* Add a gray background color with some padding */
+        
         body {
-            font-family: Arial;
-            padding: 20px;
-            background: url('https://64.media.tumblr.com/8d8b72eaeb9920b7de19a4866b4c18a1/e1f2c7535510a932-95/s540x810/b1d8913ea222cad6c8dac8e82e5e99fd799e1fa4.gif');
-            background-repeat: repeat;
+            background-color: #081309;
+            background-image: url(Images/Background.gif);
+            font-family: 'Aldrich';font-size: 22px;
         }
-
-        /* Header/Blog Title */
+     
         .header {
-            padding: 30px;
-            font-size: 40px;
+            padding: 3px;
+            font-size: 30px;
             text-align: center;
-            background: #FF71CE;
+            background: #53c258;
         }
 
-        /* Create a grid layout with three columns */
-        .container {
-            display: grid;
-            grid-template-columns: 25% 50% 25%;
-            grid-gap: 18px;
-        }
-
-        /* Left column */
-        .leftcolumn {
-            position: sticky;
-            top: 0;
-        }
-
-        /* Middle column */
-        .middlecolumn {
-            display: flex;
-            flex-direction: column;
-        }
-
-       .rightcolumn {
-            position: sticky;
-            top: 0;
-            padding: 35px; /* Add padding for spacing */
-            box-sizing: border-box; /* Ensure padding does not affect the width */
-}
-
-        /* Fake image */
-        .fakeimg {
-            background-color: #FFFB96;
-            width: 100%;
-            padding: 20px;
-        }
-
-        /* Add a card effect for articles */
         .card {
-            background-color: #FF71CE;
+            background-color: #081309;
             padding: 20px;
             margin-top: 20px;
         }
 
-        /* Footer */
-        .footer {
-            padding: 20px;
-            text-align: center;
-            background: #FF71CE;
-            margin-top: 20px;
-        }
+        h1 span {
+                text-align: center;
+                background-color: #081309;
+                padding: 10px;
+            }
+
         h2 span {
                 text-align: center;
-                background-color: #FFFB96
+                background-color: #081309
             }
-            h5 span {
-              background-color: #FFFB96;
+
+
+        h5 span {
+              background-color: #081309;
             }
-            p span {
-                background-color: #FFFB96;
-            }
-        /* Page border container */
-/* Page border container */
-.page-border {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none; /* Ensure it doesn't block interaction with content */
-    z-index: 9999; /* Keep it above the rest of the page */
-    box-sizing: border-box;
-}
-
-/* Top border container */
-.top-border {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 40px; /* Height of the border area */
-    overflow: hidden; /* Prevent overflow outside the container */
-    background-color: #000; /* Optional background for contrast */
-    z-index: 9999; /* Keep it above other content */
-    pointer-events: none; /* Allow interaction with the page */
-    display: flex;
-    align-items: center; /* Center text vertically */
-}
-
-/* Bouncing text */
-.bouncing-text {
-    display: inline-block;
-    color: #FF71CE;
-    font-size: 20px;
-    white-space: nowrap; /* Prevent the text from wrapping */
-    animation: bounceHorizontal 8s ease-in-out infinite; /* Adjust speed and loop */
-}
-
-/* Bounce animation */
-@keyframes bounceHorizontal {
-    0% {
-        transform: translateX(0); /* Start at the left */
-    }
-    50% {
-        transform: translateX(calc(100vw - 275px)); /* Move to the far right */
-    }
-    100% {
-        transform: translateX(0); /* Return to the left */
-    }
-}
-
-    </style>
-</head>
-<body>
-    <div class="top-border">
-    <div class="bouncing-text">
-        Welcome to the CAVE
-    </div>
-</div>
-
-
-<div class="header" style="color: #01CDFE">
-    <h2><span>The Cave</span></h2>
-</div>
-<div class="container">
-    <div class="leftcolumn">
-        <div class="card" style="color: #01CDFE;">
-            <h2 class="opacity"><span>Paths of THE CAVE</span></h2>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Art</a></li>
-                <li><a href="#">Mini Game</a></li>
-            </ul>
-        </div>
-        <div class="card" style="color: #01CDFE;background-image: url(Image/Curcit%20board%20oixel.png);">
-            <h2><span>Chat Box</span></h2>
             
-            <iframe title="Chat Box" src="https://www3.cbox.ws/box/?boxid=3544071&boxtag=C5QE5a" width="100%" height="450" style="background-color: #01CDFE; opacity: .9; border: none;" allow="autoplay"></iframe>
 
-        </div>
-    </div>
-    <div class="middlecolumn">
-        <div class="card" style="color: #01CDFE; display: flex; flex-direction: row; align-items: center; margin-bottom: 20px;">
-            <div style="flex: 1; order: 1;">
-                <h2><span>Log 1</span></h2>
-                <h5><span>Feb 2, 2025</span><br><span>0952</span></h5>
-                <p><span>hahahahahaah this is so fun!<br> I am constantly on the verge of snapping this laptop in half.<br>
-                    That's okay though! I am very, very slowly starting to understand this HTML.<br> I started this yesterday and
-                    I'm going to work on making custom blinkers and stickers.<br> Maybe first, I'll make an audio player... scary
-                    <br>&lpar;&acute;&#12290;&#65343;&#12290;&#65344;&rpar;</span></p>
-            </div>
-            <div style="flex: 0 0 100px; order: 2;">
-                <img src="Image/girl-screaming-cry-meme-1575191420.gif" alt="screaming" style="height:200px; width: 400px">
-            </div>
-        </div>
-        <div class="card" style="color: #01CDFE; display: flex; flex-direction: row; align-items: center; margin-bottom: 20px;">
-            <div style="flex: 1; order: 1;">
-                <h2><span>Log 2</span></h2>
-                <h5><span>Feb 2, 2025<br>2110</span></h5>
-                <p><span>Okay I am getting there &#9584;&lpar;&ast;&deg;&xdtri;&deg;&ast;&rpar;&#9583;<br><br> So I am VERY slowly getting the hang of this. I thought I was
-                    cheating by copying code but seems this is pretty common!<br> If you are interested in using this layout I
-                    got it <a href="https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_blog_layout">HERE</a>!<br>
-                    Also I was working on some art stuff today and made an OC.<br> Her name is Rema and she is a robot girl!
-                    That's about all I have now lol. Oki! I should probably head to bed now :/ <br> Good night to whoever sees
-                    this! </span></p>
-            </div>
-            <div style="flex: 0 0 100px; order: 2;">
-                <img src="Image/Rema.gif" alt="rema" style="height:280px; width: 210px">
-            </div>
-        </div>
-         <div class="card" style="color: #01CDFE; background-image: url(Image/Spin.gif);display: flex; flex-direction: row; align-items: center; margin-bottom: 20px;">
-            <div style="flex: 1; order: 1;">
-                <h2><span>Log 3</span></h2>
-                <h5><span>Feb 4, 2025<br>2059</span></h5>
-                <p><span>Cool Updates!<br><br> I told myself i wasnt going to do anything fo a log today but oh well lol. <br>
-                I really didint do much yesterday. I drew more but nothing was making me happy &#111;&lpar;&#84;&#12504;&#84;&#111;&rpar;<br>
-                Today I added a chat box which i texted a million times...heh, and i added a NAV portion<br>
-                which goes no where lol. I will try tmr to make more cute customisations, probs stickers. Welp till next time<br>
-                    &#12542;&lpar;&bull;&omega;&bull;&grave;&rpar;&#111;</span></p>
-            </div>
-        </div>
-        <div class="card" style="color: #01CDFE;display: flex; flex-direction: row; align-items: center; margin-bottom: 20px;">
-            <div style="flex: 1; order: 1;">
-                <h2><span>Log 4</span></h2>
-                <h5><span>Feb 5, 2025<br>1954</span></h5>
-                <p><span>Got some MUSIC<br><br>Made muisc player! SO SICK &lpar;&sol;&gE;&xdtri;&lE;&rpar;&sol;<br>It me fucking aaagggeees, but its done, sorta, -ish<br>
-                    I want to make a skip and back button above the dancing gifs but finsing out how to code that is proving very difficult.<br>
-                    I am struggling with Java lol. I didn't really draw today but came up with some ideas for Rema's backstory so thats dope!<br>
-                    Oki i am heading off now &#12542;&lpar;&#65507;&xdtri;&#65507;&rpar;&#32;&#66;&#121;&#101;&#126;&#66;&#121;&#101;&#126;</span></p>
-                <div style="flex: 0 0 100px; order: 2;">
-                <img src="Image/Kawaii%20GIF.gif" alt="Kawaii wave" style="height:100px; width: 200px;">
-            </div>
-            </div>
-        </div>
-        <div class="card" style="color: #01CDFE;display: flex; flex-direction: row; align-items: center; margin-bottom: 20px;">
-            <div style="flex: 1; order: 1;">
-                <h2><span>Log 5</span></h2>
-                <h5><span>Feb 6, 2025<br>1940</span></h5>
-                <p><span>YOOO I AM HOSTING NOWWWW!<br><br>I got me a domain and a hosting service! If all works i should have a a pretty cool-ish sight anyone could look up! <br>&lpar;&#32;&bull;&#768;&#32;&omega;&#32;&bull;&#769;&#32;&rpar;&#10023;<br>
-                 So today was Groks tank cleaning and before we had a bunch of plants and shit but she dont need that cuz she is really chill.<br>
-                    got her new substrate too and she LOOOOOVES it and I am glad. She burrowed her body completely! Love her. Bet it feels real good in the dirt.<br>
-                    Gunna brainstorm some ideas for what comes next. Might make a tutorial for how I did all this to help spread some creativity on the internet. See you later world!</span></p>
-                <div style="flex: 0 0 100px; order: 2;">
-                <!-- Slideshow Container -->
-    <div class="slideshow-container" style="position: relative; max-width: 100%; margin-top: 20px;">
-
-        <!-- Slide 1 -->
-        <div class="slide fade" style="display: none;">
-            <img src="Image/Gork 1.jpeg" alt="Gork Shun" style="width:100%; border-radius: 10px;">
-            <div class="slide-text" style="text-align: center; color: #01CDFE; margin-top: 10px;">Gork shunning us</div>
-        </div>
-
-        <!-- Slide 2 -->
-        <div class="slide fade" style="display: none;">
-            <img src="Image/Gork 2.jpeg" alt="side view" style="width:100%; border-radius: 10px;">
-            <div class="slide-text" style="text-align: center; color: #01CDFE; margin-top: 10px;">Side View of Gork</div>
-        </div>
-
-        <!-- Slide 3 -->
-        <div class="slide fade" style="display: none;">
-            <img src="Image/Gork 3.jpeg" alt="Gork getting comfy" style="width:100%; border-radius: 10px;">
-            <div class="slide-text" style="text-align: center; color: #01CDFE; margin-top: 10px;">Gork getting comfy</div>
-        </div>
-        <!-- Slide 4 -->
-        <div class="slide fade" style="display: none;">
-            <img src="Image/Luna.jpeg" alt="Luna Dog in bed" style="width:50%; border-radius: 10px;">
-            <div class="slide-text" style="text-align: center; color: #01CDFE; margin-top: 10px;">Luna Dog</div>
-        </div>
-
-        <!-- Next/Prev Buttons -->
-        <a class="prev" onclick="plusSlides(-1)" style="cursor: pointer; position: absolute; top: 50%; left: 0; margin-top: -22px; color: #FF71CE; font-size: 24px; font-weight: bold;">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)" style="cursor: pointer; position: absolute; top: 50%; right: 0; margin-top: -22px; color: #FF71CE; font-size: 24px; font-weight: bold;">&#10095;</a>
-    </div>
-                    
-                </div>
-                </div>
-        </div>
+        p span {
+                background-color: #081309;
+            }
         
-    </div>
-    <div class="rightcolumn">
-        <div class="card" style="color:#01CDFE; display: flex; flex-direction: column; margin-bottom: 20px;">
-            <h2><span>About Me</span></h2>
-            <div style="display: flex; align-items: center;">
-                <img src="Image/me-export.gif" alt="Description of image" style="height:100px;width: 100px; margin-right: 10px;">
-                <p style="text-align: center"><span>Hello! I am Grim &lpar;&#12291;&#65507;&omega;&#65507;&#12291;&rpar;&#12446; I am 23 years old and a Libra &#9806;<br> I live in Florida and have a beautiful frog <a href="Image/IMG_3350.JPG">GORK</a></span></p>
-            </div>
-        </div>
- <div class="audio-player">
-    <h2 style="text-align: center; color:#01CDFE;"><span>This week's music</span></h2>
-    <div class="player-with-gifs">
-        <audio id="audio" controls></audio>
-        <div>
-            <button id="next-btn">
-                <img src="Image/next.gif" alt="Nex" style="background-color: #01CDFE";>
-                <p class="gif-text">Next</p>
-            </button>
-        </div>
-    </div>
-            <source src="9am in calabasas (remix) (1).MP3" type="audio/mpeg">
-            <source src="Funny Thing (1).MP3" type="audio/mpeg">
-            <source src="Music/HIT EM WHERE IT HURTS (1).MP3" type="audio/mpeg">
-            <source src="Music/RYD-DARK RED (1).MP3" type="audio/mpeg">
-            <source src="Music/Omen (ft. Sam Smith) (1).MP3" type="audio/mpeg">
-            <source src="Music/When I R.I.P (1).MP3" type="audio/mpeg">
-            <source src="Music/Doo Wap (1).MP3" type="audio/mpeg">
-            <source src="Music/Roslyn (1).MP3" type="audio/mpeg">
-            <source src="Music/Work Out(1).MP3" type="audio/mpeg">
-            <source src="Music/On My Mind (1).MP3" type="audio/mpeg">
-            
-            <!-- Add more songs here -->
-       </audio>
-         <div><button id="prev-btn">
-                <img src="Image/prev.gif" alt="Previous" style="background-color: #01CDFE";>
-                     <p class="gif-text">Previous</p>
-            </button>
-    </div>
-    <div id="song-title" style="text-align: center; color:#01CDFE; margin-top: 10px;margin-bottom: 10px"></div>
+        @keyframes glow {
+            from {
+                border-color: #0F0;
+            }
+            to {
+                border-color: transparent;
+            }
+        }
+        :root {
+                --notification-sfx: /media/beep.mp3;
+        }
+        body {
+            background-color: #000;
+            color: #00AA00;
+            font-family: monospace;
+        }
+        body:after {
+            content: " ";
+            display: block;
+            height: 100vh;
+            width: 1000vw;
+            position: fixed;
+            left: 0;
+            top: 0;
+            background: linear-gradient(#000700 50%, #777 50%);
+            background-size: 100% 2px;
+            background-repeat: repeat;
+            opacity: 0.25;
+            z-index: 9999999999999999;
+            pointer-events: none;
+        }
+        .allMessages {
+            color: #00AA00;
+            text-shadow: 1px 1px 3px #0A0;
+            border-radius: 10px;
+            font-family: monospace;
+            letter-spacing: -1px;
+            max-width: calc(100% - 14px);
+            position: relative;
+        }
+        .allMessages.pm {
+            padding-top: 26px;
+        }
+        .allMessages.pm:before {
+            content: "Private Message:";
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            height: 16px;
+            line-height: 16px;
+            position: absolute;
+            left: 6px;
+            top: 5px;
+            font-weight: bolder;
+            color: #0F0;
+        }
+        .sent {
+        }
+        .recieved {
+        }
+        .senderInfo {
+            color: #0F0;
+            text-shadow: 0 0 3px #0F0;
+        }
+        #background {
+            background: radial-gradient(#030, #000);
+            scrollbar-color: transparent transparent;
+            scrollbar-width: none;
+        }
+        #background::-webkit-scrollbar {
+            width: 0;
+            display: none;
+        }
+        #input {
+            color: #0F0;
+            background: #000;
+            border: none;
+            outline: none;
+            font-family: monospace;
+        }
+        #input:empty:before {
+            color: #050;
+        }
+        #timestamp {
+            color: #0F0;
+            font-style: italic;
+            font-family: monospace;
+            font-size: 9pt;
+            text-align: left !important;
+            width: calc(100% - 20px);
+            padding: 0 10px 0 10px;
+            text-shadow: 1px 1px 3px #0F0;
+        }
+        #top_banner {
+            font-family: monospace;
+            color: #0F0;
+            background: #000;
+        }
+        blockquote {
+            background-color: #222;
+            border-color: #0F0;
+        }
+        #loadMore {
+            color: #0F0;
+            font-family: monospace;
+            font-size: 10pt;
+        }
+        #loadMore:hover {
+            text-decoration: underline;
+            text-decoration-style: dotted;
+            text-decoration-color: #F00;
+        }
+        .pinned {
+            border-color: #0F0;
+        }
+        .msgWrapper:hover {
+            animation: 500ms linear infinite alternate glow;
+        }
+        .msgWrapper:hover:after {
+            content: " ";
+            position: absolute;
+            right: 2px;
+            top: -2px;
+            height: 100%;
+            width: 2%;
+            background-color: transparent;
+            border-top: solid 2px #0F0;
+            border-bottom: solid 2px #0F0;
+            border-right: solid 2px #0F0;
+            border-color: inherit;
+            filter: drop-shadow(0 0 5px #0F0);
+        }
+        .msgWrapper:hover:before {
+            content: " ";
+            position: absolute;
+            left: 0;
+            top: -2px;
+            height: 100%;
+            width: 2%;
+            background-color: transparent;
+            border-top: solid 2px #0F0;
+            border-bottom: solid 2px #0F0;
+            border-left: solid 2px #0F0;
+            border-color: inherit;
+            filter: drop-shadow(0 0 2px #0F0);
+        }
+        .pinned:after {
+          content: " ";
+          position: absolute;
+          right: 2px;
+          top: -2px;
+          height: 100%;
+          width: 2%;
+          background-color: transparent;
+          border-top: solid 2px #0F0;
+          border-bottom: solid 2px #0F0;
+          border-right: solid 2px #0F0;
+          border-color: inherit;
+          filter: drop-shadow(0 0 5px #0F0);
+        }
+        .pinned:before {
+          content: " ";
+          position: absolute;
+          left: 0;
+          top: -2px;
+          height: 100%;
+          width: 2%;
+          background-color: transparent;
+          border-top: solid 2px #0F0;
+          border-bottom: solid 2px #0F0;
+          border-left: solid 2px #0F0;
+          border-color: inherit;
+          filter: drop-shadow(0 0 2px #0F0);
+        }
+        .mod, .owner, .tester {
+          width: 0;
+          font-size: 8pt;
+          text-shadow: none;
+        }
+        .mod::before {
+          content: "[MODERATOR]";
+          display: inline-block;
+          color: #0F0;
+          position: absolute;
+          top: 7px;
+          right: 7px;
+          text-shadow: 0 0 3px #0F0;
+        }
+        .owner::before {
+          content: "[OWNER]";
+          display: inline-block;
+          color: #F00;
+          position: absolute;
+          top: 7px;
+          right: 7px;
+          text-shadow: 0 0 3px #F00;
+        }
+        .beta::before {
+          content: "[BETA TESTER]";
+          display: inline-block;
+          color: #0F0;
+          position: absolute;
+          top: 7px;
+          right: 7px;
+        }
+        #settings {
+          background-image: none;
+        }
+        #settings:after {
+          position: absolute;
+          right: 0;
+          top: 0;
+          content: "#";
+          color: #0F0;
+        }
+        #settings:hover:after {
+          font-weight: bold;
+        }
+        #replyBanner {
+          color: #0F0;
+          font-family: monospace;
+          font-size: 8pt;
+          text-shadow: 0 0 3px #0F0;
+        }
+        .msgBody a {
+          color: #0F0 !important;
+        }
+        #emojiTrayToggle:after {
+          content: ":)";
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          left: 0;
+          top: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #0F0;
+          text-shadow: 0 0 2px #0F0;
+        }
+        #emojiTray {
+          background-color: #000;
+          color: #0F0;
+          border-color: #0F0;
+        }
+        .emojiInGrid:hover {
+          transform: scale(200%);
+          filter: drop-shadow(0px 2px 3px #0F0);
+          transition: all 500ms ease-in-out;
+        }
+        #settingsMenu {
+          color: #0F0;
+        }
+        #settingsMenu input[type=text] {
+          border: none;
+          border-bottom: solid 1px #0F0;
+          background-color: transparent;
+          color: #0F0;
+          outline: none !important;
+        }
+        #save {
+          border: none;
+          background-color: transparent;
+          color: #0F0;
+          font-size: 12pt;
+          font-weight: bolder;
+          cursor: pointer;
+        }
+        #save:hover {
+          text-shadow: 0 0 5px #0F0;
+        }
+        #save::before {
+          content: "[";
+            margin-right: 10px;
+        }
+        #save::after {
+          content: "]";
+          margin-left: 10px;
+        }
+        #is_typing {
+          background-color: transparent;
+          border: none;
+          border-radius: 1px;
+          width: unset;
+          height: unset;
+        }
+        #is_typing:before {
+          content: "Someone's typing";
+        }
+        #is_typing > span {
+          height: 2px;
+          width: 2px;
+          borer-radius: 0;
+          background-color: #0F0;
+        }
+        
+        body, html {
+  height: 100%;
+  margin: 0;
+}
 
-</div>
+.bgimg {
+  background-image: url('img');
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  color: white;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 25px;
+}
 
+.middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+        
+hr {
+  margin: auto;
+  width: 40%;
+}
+</style>
+</head>
+     <body>
+        
+ <div class="bgimg">
 
-    <script src="script.js"></script>
-    </div>
+      <div class="middle">
+        <h1>COMING SOON</h1>
+        <hr>
+      </div>
     
+        
+        <div class="header" style="color: #53c258">
+            <h1><span>THE CAVE</span></h1>
+        </div>
 </div>
-<div class="footer" style="color: #01CDFE">
-    <h2>Footer</h2>
-</div>
-</body>
+        <iframe src='https://iframe.chat/embed?chat=CaveChat' id='chattable' border='none' title="Cave Chat" style="margin-top: 5px;"></iframe>
+        <script>
+            chattable.initialize({
+            theme : "Hacker Terminal"
+            });
+        </script>
+        
+        <script>
+            chattable.initialize({
+            stylesheet : "chattable.css"
+            });
+        </script>
+
+        <!-- Elfsight Audio Player | Untitled Audio Player -->
+        <script src="https://static.elfsight.com/platform/platform.js" async></script>
+        <div class="elfsight-app-02d49a08-7367-430c-a390-7c3ed4b583c6" data-elfsight-app-lazy></div>
+
+    </body>
 </html>
